@@ -9,29 +9,39 @@ Tests for `geo_python` module.
 """
 
 
-import sys
 import unittest
-from contextlib import contextmanager
-from click.testing import CliRunner
 
-from geo_python import geo_python
-from geo_python import cli
+from geo_python.geo_python import Point
 
 
+class TestGeoPython(unittest.TestCase):
 
-class TestGeo_python(unittest.TestCase):
+    class TestPoint(Point):
+        __key__ = 'test_point'
 
     def setUp(self):
-        pass
+        self.TestPoint.redis_store.flushall()
 
     def tearDown(self):
+        self.TestPoint.redis_store.flushall()
+
+    def test_add_point(self):
+        point = self.TestPoint.add(120, 40, 'test point')
+        self.assertEqual(point.longitude, 120)
+        self.assertEqual(point.latitude, 40)
+        self.assertEqual(point.member, 'test point')
+
+    def test_geo_hash(self):
         pass
 
-    def test_command_line_interface(self):
-        runner = CliRunner()
-        result = runner.invoke(cli.main)
-        assert result.exit_code == 0
-        assert 'geo_python.cli.main' in result.output
-        help_result = runner.invoke(cli.main, ['--help'])
-        assert help_result.exit_code == 0
-        assert '--help  Show this message and exit.' in help_result.output
+    def test_get_pos(self):
+        pass
+
+    def test_get_dist(self):
+        pass
+
+    def test_get_radius(self):
+        pass
+
+    def test_get_radius_by_member(self):
+        pass
