@@ -20,19 +20,20 @@ class TestGeoPython(unittest.TestCase):
         __key__ = 'test_point'
 
     def setUp(self):
-        self.TestPoint.redis_store.flushall()
+        self.TestPoint.redis_store.delete(self.TestPoint.__key__)
 
     def tearDown(self):
-        self.TestPoint.redis_store.flushall()
+        self.TestPoint.redis_store.delete(self.TestPoint.__key__)
 
-    def test_add_point(self):
-        point = self.TestPoint.add(120, 40, 'test point')
+    def test_create_point(self):
+        point = self.TestPoint.create(120, 40, 'test point')
         self.assertEqual(point.longitude, 120)
         self.assertEqual(point.latitude, 40)
         self.assertEqual(point.member, 'test point')
 
     def test_geo_hash(self):
-        pass
+        point = self.TestPoint.create(120, 40, 'test point')
+        self.assertEqual(point.geo_hash(), "")
 
     def test_get_pos(self):
         pass
