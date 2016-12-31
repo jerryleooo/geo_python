@@ -48,8 +48,8 @@ class Point(object):
         cls.redis_store.geoadd(cls.__key__, longitude, latitude, member)
         return cls(longitude, latitude, member)
 
-    def delete(cls):
-        pass
+    def delete(self):
+        return self.__class__.redis_store.zrem(self.__key__, self.member)
 
     def update(self):
         pass
@@ -58,5 +58,5 @@ class Point(object):
         pass
 
     def geo_hash(self):
-        return self.redis_store.geohash(self.member)
+        return self.__class__.redis_store.geohash(self.__key__, self.member)
 
