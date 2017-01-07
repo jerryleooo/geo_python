@@ -41,14 +41,22 @@ class TestGeoPython(unittest.TestCase):
         query_result = self.TestPoint.redis_store.georadius(self.TestPoint.__key__, 120, 40, 10000)
         assert not query_result
 
-    def test_get_pos(self):
-        pass
+    def test_update_point(self):
+        test_point_2 = 'test point 2'
+        point = self.TestPoint.create(120, 40, 'test point')
+        point.update(member=test_point_2)
+        self.assertEqual(point.member, test_point_2)
 
-    def test_get_dist(self):
-        pass
+    def test_query_by_pos(self):
+        point = self.TestPoint.create(120, 40, 'test point')
+        self.assertIn(point.member, [p.member for p in self.TestPoint.query_by_pos(120, 40, 10000)])
 
-    def test_get_radius(self):
-        pass
+    def test_query_by_member(self):
+        point = self.TestPoint.create(120, 40, 'test point')
+        self.assertIn(point.member, [p.member for p in self.TestPoint.query_by_member(point.member)])
 
-    def test_get_radius_by_member(self):
-        pass
+    def test_dist(self):
+        point1 = self.TestPoint.create(120, 40, 'test point 1')
+        point2 = self.TestPoint.create(119, 40, 'test point 2')
+        self.assertEqual(int(self.TestPoint.dist(point1, point2)), 85204)
+
