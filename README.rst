@@ -35,6 +35,7 @@ Get Started
 -----------
 
 ::
+
     In [1]: from geo_python import Point
     In [2]: class MyPoint(Point):
        ...:     __key__ = 'my_point'
