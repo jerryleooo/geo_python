@@ -10,7 +10,6 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'Click>=6.0',
     # TODO: put package requirements here
 ]
 
@@ -31,11 +30,6 @@ setup(
     ],
     package_dir={'geo_python':
                  'geo_python'},
-    entry_points={
-        'console_scripts': [
-            'geo_python=geo_python.cli:main'
-        ]
-    },
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
