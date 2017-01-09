@@ -10,6 +10,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
+    'redis'
     # TODO: put package requirements here
 ]
 
@@ -17,10 +18,14 @@ test_requirements = [
     # TODO: put package test requirements here
 ]
 
+dependency_links = [
+    'https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis'
+]
+
 setup(
     name='geo_python',
     version='0.1.0',
-    description="Simple GEO library based on Redis >= 3.2",
+    description="Simple GEO library based on Redis GEO function",
     long_description=readme + '\n\n' + history,
     author="Jerry Lau",
     author_email='whilgeek@gmail.com',
@@ -30,6 +35,7 @@ setup(
     ],
     package_dir={'geo_python':
                  'geo_python'},
+    dependency_links=dependency_links,
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
