@@ -1,0 +1,1 @@
+https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis
