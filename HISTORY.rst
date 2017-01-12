@@ -11,3 +11,8 @@ History
 ------------------
 
 * Change the config
+
+
+0.1.2 (2017-01-12)
+------------------
+* Fix config error

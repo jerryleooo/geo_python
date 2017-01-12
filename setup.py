@@ -24,7 +24,7 @@ dependency_links = [
 
 setup(
     name='geo_python',
-    version='0.1.1',
+    version='0.1.2',
     description="Simple GEO library based on Redis GEO function",
     long_description=readme + '\n\n' + history,
     author="Jerry Lau",
