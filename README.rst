@@ -31,6 +31,12 @@ With these commands, we can easily develop LBS or GEO application.
 Unfortunately, these features are not in redis-py(https://github.com/andymccurdy/redis-py) released packages, so we can only use its development version.
 
 
+Live Demo
+----------
+
+https://github.com/JerryLeooo/geo_example
+
+
 Get Started
 -----------
 
