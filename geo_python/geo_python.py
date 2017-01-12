@@ -5,10 +5,10 @@ from .exc import InvalidPointError
 
 
 default_config = {
-    'GEO_DEFAULT_HOST': 'localhost',
-    'GEO_DEFAULT_PORT': 6379,
-    'GEO_DEFAULT_PASSWORD': None,
-    'GEO_DEFAULT_DB': 0
+    'GEO_REDIS_HOST': 'localhost',
+    'GEO_REDIS_PORT': 6379,
+    'GEO_REDIS_PASSWORD': None,
+    'GEO_REDIS_DB': 0
 }
 
 
@@ -38,10 +38,10 @@ class MetaPoint(type):
         else:
             config = cls.config
 
-        return StrictRedis(host=config['GEO_DEFAULT_HOST'],
-                           port=config['GEO_DEFAULT_PORT'],
-                           password=config['GEO_DEFAULT_PASSWORD'],
-                           db=config['GEO_DEFAULT_DB'])
+        return StrictRedis(host=config['GEO_REDIS_HOST'],
+                           port=config['GEO_REDIS_PORT'],
+                           password=config['GEO_REDIS_PASSWORD'],
+                           db=config['GEO_REDIS_DB'])
 
 
 class Point(object):
