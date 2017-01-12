@@ -23,25 +23,18 @@ class MetaPoint(type):
 
         if name != 'Point' and '__key__' not in attrs:
             raise InvalidPointError("__key__ should be specified")
-        cls.redis_store = cls.read_config()
-        return type.__new__(cls, name, bases, attrs)
 
-    @classmethod
-    def read_config(cls):
-
-        """
-        For customized configuration, use `config`
-        """
-
-        if 'config' not in cls.__dict__:
+        if 'config' not in attrs:
             config = default_config
         else:
-            config = cls.config
+            config = attrs["config"]
 
-        return StrictRedis(host=config['GEO_REDIS_HOST'],
-                           port=config['GEO_REDIS_PORT'],
-                           password=config['GEO_REDIS_PASSWORD'],
-                           db=config['GEO_REDIS_DB'])
+        cls.redis_store = StrictRedis(host=config['GEO_REDIS_HOST'],
+                                      port=config['GEO_REDIS_PORT'],
+                                      password=config['GEO_REDIS_PASSWORD'],
+                                      db=config['GEO_REDIS_DB'])
+
+        return type.__new__(cls, name, bases, attrs)
 
 
 class Point(object):
