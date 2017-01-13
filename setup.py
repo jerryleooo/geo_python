@@ -22,6 +22,10 @@ dependency_links = [
     'https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis'
 ]
 
+extras_require = {
+    'redis': ['redis']
+}
+
 setup(
     name='geo_python',
     version='0.1.2',
@@ -36,6 +40,7 @@ setup(
     package_dir={'geo_python':
                  'geo_python'},
     dependency_links=dependency_links,
+    extras_require=extras_require,
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
