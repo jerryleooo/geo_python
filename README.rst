@@ -45,6 +45,8 @@ Now to use geo_python, you have to install the development version of redis-py f
 .. code-block:: console
 
     $ pip install https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis
+    
+    $ pip install geo_python
 
 
 Get Started
