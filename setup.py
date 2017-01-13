@@ -10,7 +10,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'georedis'
+    'redis==dev'
     # TODO: put package requirements here
 ]
 
@@ -19,7 +19,7 @@ test_requirements = [
 ]
 
 dependency_links = [
-    'https://github.com/andymccurdy/redis-py/archive/master.zip#egg=georedis'
+    'https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis-dev'
 ]
 
 setup(
