@@ -4,6 +4,11 @@
 Installation
 ============
 
+Now to use geo_python, you have to install the development version of redis-py first, and I am trysng to fix this...
+
+.. code-block:: console
+
+    $ pip install https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis
 
 Stable release
 --------------
