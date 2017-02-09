@@ -10,7 +10,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'redis'
+    "redis==dev"
     # TODO: put package requirements here
 ]
 
@@ -19,7 +19,7 @@ test_requirements = [
 ]
 
 dependency_links = [
-    'https://github.com/andymccurdy/redis-py/archive/master.zip#egg=redis'
+    'https://github.com/JerryLeooo/redis-py/archive/geo.zip#egg=redis-dev'
 ]
 
 setup(
@@ -35,9 +35,9 @@ setup(
     ],
     package_dir={'geo_python':
                  'geo_python'},
-    dependency_links=dependency_links,
     include_package_data=True,
     install_requires=requirements,
+    dependency_links=dependency_links,
     license="MIT license",
     zip_safe=False,
     keywords='geo_python',
